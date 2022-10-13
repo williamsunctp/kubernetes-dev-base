@@ -59,7 +59,7 @@ variable "secondary_cidrs" {
 
 variable "k8s_worker_subnets" {
   type        = list(string)
-  default     = ["100.67.0.0/20", "100.67.16.0/20"]
+  default     = ["100.67.0.0/20", "100.67.16.0/20", "100.67.32.0/20"]
   description = "list of alternate secondary cidrs for kubernetes workers"
 }
 
