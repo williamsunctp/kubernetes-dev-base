@@ -12,8 +12,8 @@ module "vpc" {
   public_subnets  = var.public_subnets
 
   # We want to use the 100.64.0.0/16 address space for the EKS nodes and since
-  # this module doesnt have an EKS subnet, we will use the eks_private instead.
-  eks_subnets = var.k8s_worker_subnets
+  # this module doesnt have an EKS subnet, we will use the elasticache instead.
+  elasticache_subnets = var.k8s_worker_subnets
 
   enable_nat_gateway  = var.enable_nat_gateway
   reuse_nat_ips       = var.reuse_nat_ips
@@ -33,7 +33,7 @@ module "vpc" {
     "kubernetes.io/role/internal-elb"           = "1"
   }
 
-  eks_subnet_tags = {
+  elasticache_subnet_tags = {
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb"           = "1"
     "ops_purpose"                               = "Overloaded for k8s worker usage"
